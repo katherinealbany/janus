@@ -11,7 +11,7 @@ func main() {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	err := cmd.Run()
+	err := cmd.Start()
 	log.Println("Running...")
 	if err != nil {
 		log.Fatal(err)
@@ -22,6 +22,4 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	log.Printf("Finished with error: %v", err)
 }
