@@ -1,26 +1,17 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
 	"log"
+	"os"
 	"os/exec"
 )
 
 func main() {
 	cmd := exec.Command("docker", "version")
-	stdout, err := cmd.StdoutPipe()
-	if err != nil {
-		log.Fatal(err)
-	}
-	scanner := bufio.NewScanner(stdout)
-	go func() {
-		for scanner.Scan() {
-			fmt.Printf("%s\n", scanner.Text())
-		}
-	}()
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
 
-	err = cmd.Start()
+	err := cmd.Start()
 	log.Println("Running...")
 	if err != nil {
 		log.Fatal(err)
