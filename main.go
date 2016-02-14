@@ -11,7 +11,7 @@ func main() {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	err := cmd.Start()
+	err := cmd.Run()
 	log.Println("Running...")
 	if err != nil {
 		log.Fatal(err)
