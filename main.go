@@ -13,14 +13,14 @@ func main() {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	err := cmd.Start()
-	log.Info("Running...")
-	if err != nil {
+	log.Debug("Starting...")
+	if err := cmd.Start(); err != nil {
 		log.Fatal(err)
 	}
+	log.Info("Running...")
 
 	log.Info("Waiting...")
-	err = cmd.Wait()
+	err := cmd.Wait()
 	if err != nil {
 		log.Fatal(err)
 	}
