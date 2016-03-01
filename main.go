@@ -18,10 +18,7 @@ func main() {
 		log.Fatal(err)
 	}
 	log.Info("Running...")
-
-	log.Info("Waiting...")
-	err := cmd.Wait()
-	if err != nil {
+	if err := cmd.Wait(); err != nil {
 		log.Fatal(err)
 	}
 }
