@@ -1,16 +1,19 @@
 package main
 
 import (
+	"flag"
 	"github.com/katherinealbany/rodentia/logger"
 	"os"
 	"os/exec"
 )
 
 var log = logger.New("main")
+var dir string
 
 func main() {
-	args := os.Args[1:]
-	log.Info(args)
+	flag.StringVar(&dir, "dir", ".", "supply it")
+	flag.Parse()
+	log.Info(dir)
 
 	cmd := exec.Command("docker", "version")
 	cmd.Stdout = os.Stdout
