@@ -9,6 +9,9 @@ import (
 var log = logger.New("main")
 
 func main() {
+	args := os.Args[1:]
+	log.Info(args)
+
 	cmd := exec.Command("docker", "version")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
