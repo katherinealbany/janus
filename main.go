@@ -8,12 +8,27 @@ import (
 )
 
 var log = logger.New("main")
+
 var dir string
+var repo string
+var build string
+var stable string
+var release string
+var force string
+var push string
+
+func init() {
+	flag.StringVar(&dir, "dir", ".", "build directory")
+	flag.StringVar(&repo, "repo", "katherinealbany", "docker registry repository")
+	flag.StringVar(&build, "build", "latest", "build tag")
+	flag.StringVar(&stable, "stable", "stable", "stable build tag")
+	flag.StringVar(&release, "release", "v1.0.0", "release version")
+	flag.StringVar(&force, "force", "false", "force the matter!")
+	flag.StringVar(&push, "push", "true", "push after build")
+}
 
 func main() {
-	flag.StringVar(&dir, "dir", ".", "supply it")
 	flag.Parse()
-	log.Info(dir)
 
 	cmd := exec.Command("docker", "version")
 	cmd.Stdout = os.Stdout
