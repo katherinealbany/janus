@@ -31,13 +31,13 @@ func main() {
 	log.Info("Parsing...")
 	flag.Parse()
 
-	log.Info("dir     =", dir)
-	log.Info("repo    =", repo)
-	log.Info("build   =", build)
-	log.Info("stable  =", stable)
-	log.Info("release =", release)
-	log.Info("force   =", force)
-	log.Info("push    =", push)
+	log.Debug("dir     =", dir)
+	log.Debug("repo    =", repo)
+	log.Debug("build   =", build)
+	log.Debug("stable  =", stable)
+	log.Debug("release =", release)
+	log.Debug("force   =", force)
+	log.Debug("push    =", push)
 
 	cmd := exec.Command("docker", "version")
 	cmd.Stdout = os.Stdout
