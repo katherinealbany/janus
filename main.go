@@ -7,15 +7,17 @@ import (
 	"os/exec"
 )
 
-var log = logger.New("main")
+var (
+	log = logger.New("main")
 
-var dir string
-var repo string
-var build string
-var stable string
-var release string
-var force string
-var push string
+	dir     string
+	repo    string
+	build   string
+	stable  string
+	release string
+	force   string
+	push    string
+)
 
 func init() {
 	flag.StringVar(&dir, "dir", ".", "build directory")
